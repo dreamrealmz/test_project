@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  db:
+      image: "postgres"
+      env_file:
+        - ./.env
+      ports:
+        - '2345:5432'
+      build:
+        context: ./backend
+        dockerfile: db.Dockerfile
+      volumes:
+        - postgres_data:/var/lib/postgresql12_3/data/
+  web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0:8000
+    restart: always
+    volumes:
+      - ./backend/:/usr/backend/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
