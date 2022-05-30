@@ -1,0 +1,14 @@
+logs/
+profiles/
+data/
+dumps/
+public/
+backend/static/
+
+.idea/
+.DS_Store/
+
+.env
+env/
+venv/
+
