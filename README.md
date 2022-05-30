@@ -1,6 +1,6 @@
 ## Разворачивание проекта
 - cp example.env .env
-- заполнить .env файл
+- заполнить .env файл(необязательно)
 - docker-compose build
 - docker-compose up
 - docker exec -it <название контейнера заканчивающееся на _web_1 или -web-1> python manage.py migrate
